@@ -102,6 +102,7 @@ input:focus::placeholder {
 
 
 ul {
+    display: none;
     background-color: red;
     color: white;
     padding: 100px;
@@ -133,4 +134,25 @@ button:hover {
     background-color: white;
     color: red;
     cursor: pointer;
+}
+
+.media {
+    display: none;
+}
+
+@media (max-width: 780px) {
+
+    .media {
+        font-family: "Concert One", sans-serif;
+        display: block;
+        width: 100vw;
+        height: 100vh;
+        background-color: red;
+        color: white;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
 }

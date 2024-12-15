@@ -7,8 +7,10 @@ const TODOS_KEY = "todos";
 let toDos = [];
 
 
+
+
 function saveToDos(){
-    localStorage.setItem(TODOS_KEY, JSON.stringify(toDos));
+        localStorage.setItem(TODOS_KEY, JSON.stringify(toDos));
 }
 
 function deleteTodo(event){
@@ -16,6 +18,7 @@ function deleteTodo(event){
     const li = event.target.parentElement;
     console.log(li.id);
     li.remove();
+    ul.style.display = "none";
     toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id));
     saveToDos();
 }
@@ -57,10 +60,15 @@ function sayHello(item) {
 
 const savedTodos = localStorage.getItem(TODOS_KEY);
 console.log(savedTodos);
-if(savedTodos !== null){
+if(savedTodos.length !== 0){
     const parsedTodos = JSON.parse(savedTodos);
     console.log(parsedTodos);
     parsedTodos.forEach(paintToDo);
+} else {
+    ul.style.display = "none";
+};
+
+if(toDos.length !== 0){
     ul.style.display = "block";
 } else {
     ul.style.display = "none";
