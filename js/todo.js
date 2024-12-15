@@ -7,18 +7,13 @@ const TODOS_KEY = "todos";
 let toDos = [];
 
 
-
-
 function saveToDos(){
         localStorage.setItem(TODOS_KEY, JSON.stringify(toDos));
 }
 
 function deleteTodo(event){
-    console.log("hehy");
     const li = event.target.parentElement;
-    console.log(li.id);
     li.remove();
-    ul.style.display = "none";
     toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id));
     saveToDos();
 }
@@ -67,10 +62,3 @@ if(savedTodos.length !== 0){
 } else {
     ul.style.display = "none";
 };
-
-if(toDos.length !== 0){
-    ul.style.display = "block";
-} else {
-    ul.style.display = "none";
-};
-
